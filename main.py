@@ -44,5 +44,5 @@ while running:
             if 385 < temp[1] < 430:
                 from DragonBall import dragonball
             elif 475 < temp[1] < 525:
-                from eating_ground import eating_ground
+                from EatGround import EatGround
 pygame.quit()
