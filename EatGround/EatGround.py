@@ -100,9 +100,9 @@ def main(next_stage, last_score):
         temp_list = [start_node]
         visit = copy.deepcopy(map_coordinate)
         if start_node[0] < 0 or start_node[0] > 860 or start_node[1] < 0 or start_node[1] > 620:
-            return 0
+            return
         if visit[start_node[0]][start_node[1]] == 1:
-            return 0
+            return
         visit[start_node[0]][start_node[1]] = 1
         queue = [start_node]
         while queue:
@@ -117,11 +117,10 @@ def main(next_stage, last_score):
                         temp_list.append((nx, ny))
         for i in range(0, stage):
             if (enemy[i].rect.x, enemy[i].rect.y) in temp_list:
-                return 0
+                return
         for n in temp_list:
             map_coordinate[n[0]][n[1]] = 1
             real_line.append(n)
-        return 1
 
     # 화면 초기화
     def show_main():
@@ -145,8 +144,7 @@ def main(next_stage, last_score):
                         exit()
         else:
             for i, j in bfs_check_list:
-                if bfs((i, j)) == 1:
-                    continue
+                bfs((i, j))
             bfs_check_list.clear()
             temp_line.clear()
         if winning_percent >= 100:
